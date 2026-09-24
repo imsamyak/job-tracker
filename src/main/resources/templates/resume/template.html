@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header>
+    <h2 class="heading">Samyak Jain</h2>
+    <ul class="contacts">
+        <li>
+            <a href="tel:8766342062">8766342062</a>
+            &nbsp;|&nbsp;
+        </li>
+        <li>
+            <!-- The renderer sets both href and text to the job's email (a per-job override, or the
+                 default) - see ResumePdfRenderer. -->
+            <a id="email-link" href="mailto:imsamyak18@gmail.com">imsamyak18@gmail.com</a>
+            &nbsp;|&nbsp;
+        </li>
+        <li>
+            <a href="https://linkedin.com/in/imsamyakjain">linkedin.com/in/imsamyakjain</a>
+            &nbsp;|&nbsp;
+        </li>
+        <li>
+            <a href="https://github.com/imsamyak">github.com/imsamyak</a>
+            &nbsp;|&nbsp;
+        </li>
+        <li>
+            <a href="https://leetcode.com/u/imsamyak18">leetcode.com/u/imsamyak18</a>
+        </li>
+    </ul>
+</header>
+
+<div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary">Software Engineer experienced in building backend services, event-driven systems, frontend
+        applications, shared developer tooling, and cloud infrastructure for a multi-tenant K–12 EdTech platform. Strong
+        foundation in API design, distributed systems, data modeling, object-oriented programming, and data structures
+        and algorithms.
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Experience</div>
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">Compro Technologies — Delhi</div>
+            <div class="item-date">Jan 2025 – Present</div>
+        </div>
+        <div class="item-header">
+            <!-- The renderer sets this to "Associate Software Engineer" or "Software Engineer" depending
+                 on whether the TARGET job's own role mentions "Associate" - see ResumePdfRenderer. -->
+            <div class="item-subtitle" id="designation">Software Engineer</div>
+            <div class="item-location"></div>
+        </div>
+        <div class="project-details">
+            <span style="font-size: 9pt"><strong>Project: K–12 LMS (School Framework) — multi-tenant platform supporting 1M+ active users across schools</strong></span>
+        </div>
+        <ul class="bullet-list">
+            <li>Built the core Roster Service to model <strong>6 OneRoster entities</strong> -- organizations, users,
+                courses, classes, enrollments, and academic sessions -- per the 1EdTech OneRoster data standard, with
+                dedicated Lambda handlers per entity to process incoming roster data.
+            </li>
+            <li>Integrated Rostersteam (Ednition) as the roster ingestion source, consuming OneRoster-formatted CSV data
+                through event-driven Lambda handlers to <strong>automate onboarding</strong> across multiple schools.
+            </li>
+            <li>Built a Calendar Service end to end -- event modeling, ingestion, and calendar-date processing following
+                the EdFi standard schema -- using a <strong>CQRS-based read model</strong> for user-course aggregations
+                and progress tracking, improving read throughput by roughly <strong>35%</strong> while supporting
+                multi-tenancy.
+            </li>
+            <li>Architected and delivered an <strong>event-driven transcript generation platform</strong> using AWS SQS,
+                Lambda, DynamoDB, API Gateway, and S3, maintaining <strong>99.9% availability</strong>.
+            </li>
+            <li>Reduced frontend load times by cutting <strong>FCP and LCP by ~0.5s</strong> via image optimization,
+                lazy loading, and code splitting; and refactored <strong>15+ legacy modules</strong> into a reusable
+                component library, improving maintainability across shared applications.
+            </li>
+            <!-- Filler bullet: normally hidden, shown only on a resume light enough to still fit one page with it
+                 included - see ResumePdfRenderer. Same factual content that used to be part of the bullet above,
+                 just split out, not new/invented content. -->
+            <li id="filler-bullet">Fixed a <strong>cross-tenant session-leakage vulnerability</strong> across the
+                Onboarding and Teaching applications, restoring correct tenant, session, and domain isolation.
+            </li>
+            <li>Built and documented an internal service SDK and provisioned infrastructure via AWS CDK across
+                <strong>5 microservices</strong>.
+            </li>
+            <!-- Second filler bullet: same removal mechanism as filler-bullet, tried second (dropped first if
+                 there isn't room for both) - see ResumePdfRenderer. Also split out of real content above, not new. -->
+            <li id="filler-bullet-2">Shipped <strong>15+ REST APIs and 10+ GraphQL APIs</strong> with JWT
+                authentication, request validation, caching, rate limiting, centralized structured logging, and
+                automated error handling -- reducing incident-investigation time by roughly <strong>30%</strong>.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Projects</div>
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">
+                Linkora -- Scalable URL Shortener
+                <span style="font-weight: normal; font-style: italic; margin-left: 0.6em">Nuxt.js, Vue.js, TypeScript, Express.js, DynamoDB, AWS CDK</span>
+            </div>
+        </div>
+        <div class="project-details" style="font-size: 8pt">
+            <strong>Live:</strong> <a href="https://linkora-mnyr.onrender.com">linkora-mnyr.onrender.com</a>&nbsp;|&nbsp;
+            <strong>Code:</strong> <a
+                href="https://github.com/imsamyak/url-shortner">github.com/imsamyak/url-shortner</a>&nbsp;|&nbsp;
+            <strong>Architecture:</strong> <a href="https://linkora-mnyr.onrender.com/architecture">linkora-mnyr.onrender.com/architecture</a>
+        </div>
+        <ul class="bullet-list">
+            <li>Engineered a <strong>full-stack URL shortener</strong> with a <strong>Nuxt 4/Vue 3 SSR client</strong>
+                and a modular <strong>Express 5/TypeScript REST API</strong>; implemented authenticated workspaces, link
+                creation, expiration, and redirection.
+            </li>
+            <li>Designed a <strong>single-table DynamoDB model</strong> with <strong>cursor-based pagination</strong>
+                and <strong>native TTL attributes</strong> for scalable access patterns and automatic cleanup of expired
+                redirects.
+            </li>
+            <li>Secured API flows with <strong>password hashing</strong>, <strong>intent-scoped authentication</strong>,
+                <strong>schema validation</strong>, and <strong>protected server-side gateways</strong>.
+            </li>
+            <li>Provisioned a <strong>two-AZ cloud architecture</strong> with traffic distribution, auto scaling,
+                firewall protection, and monitoring, plus rolling CI/CD; tested core services with unit and end-to-end
+                tests.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Education</div>
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">Maharaja Agrasen Institute of Technology, GGSIP University — Delhi</div>
+            <div class="item-date"></div>
+        </div>
+        <div class="item-header">
+            <div class="item-subtitle">
+                Bachelor of Technology in Computer Science and Engineering — CGPA: 8.95
+            </div>
+            <div class="item-location">2025</div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Technical Skills</div>
+    <!-- The renderer replaces the content of #skills with the sections chosen for the job. -->
+    <div class="skills-list" id="skills">
+        <div><span>Languages:</span> Java, JavaScript, TypeScript, SQL</div>
+        <div><span>Frontend:</span> HTML5, CSS3, React.js, Vue.js, jQuery, Tailwind CSS, SCSS, Nuxt.js, Redux, Next.js,
+            Server-Side Rendering
+        </div>
+        <div><span>Backend:</span> Node.js, Express.js, REST, GraphQL, Docker, OpenAPI, Spring Boot, Spring MVC, NestJS,
+            Microservices, Kafka, RabbitMQ, Kubernetes, Ngnix, Redis
+        </div>
+        <div><span>Databases:</span> MySQL, PostgreSQL, MongoDB, DynamoDB</div>
+        <div><span>AWS:</span> Lambda, S3, SQS, SNS, ALB, CloudWatch, CDK, CloudFront, EC2, ERS, VPC, WAF</div>
+        <div><span>Testing & Tools:</span> Git, GitHub, Postman, Turborepo, Vitest, Playwright, SonarQube</div>
+        <div><span>Concepts:</span> OOPs, Data Structure & Algorithms, SOLID Principles, Agile Methodologies,
+            Domain-Driven Design, CI/CD, API Design, Cloud Computing, CQRS, Event-Driven Architecture, SAGA Pattern,
+            Data Modeling, Distributed Systems
+        </div>
+        <div><span>AI-Assisted Development:</span> GitHub Copilot, Claude</div>
+    </div>
+</div>
+
+<!-- The renderer drops this whole section unless "java" is one of the job's stacks. -->
+<div class="section" id="certifications">
+    <div class="section-title">Certifications</div>
+    <ul class="bullet-list">
+        <li>Java Full Stack Development -- Wipro TalentNext</li>
+    </ul>
+</div>
+</body>
+</html>

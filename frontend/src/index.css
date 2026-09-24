@@ -1,0 +1,33 @@
+:root {
+  color-scheme: dark;
+  /* Firefox: dark, thin page scrollbar so it doesn't show as a bright default-light track against the
+     dark theme. `color-scheme: dark` above should already make Chromium's own scrollbar dark, but the
+     explicit ::-webkit-scrollbar rules below are a belt-and-suspenders fallback since that inheritance
+     has been unreliable in embedded/preview contexts. */
+  scrollbar-width: thin;
+  scrollbar-color: #3a4152 #0b0d12;
+}
+
+html, body {
+  margin: 0;
+  background: #0b0d12;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0d12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4152;
+  border-radius: 999px;
+  border: 2px solid #0b0d12;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5468;
+}

@@ -1,0 +1,36 @@
+Samyak Jain - Software Engineer at Compro Technologies, Delhi (Jan 2025-Present), working on a
+multi-tenant K-12 LMS platform (School Framework) supporting 1M+ active users across schools.
+
+Key experience:
+- Built the core Roster Service to model 6 OneRoster entities (organizations, users, courses, classes,
+  enrollments, academic sessions) per the 1EdTech OneRoster data standard, with dedicated Lambda handlers
+  per entity.
+- Integrated Rostersteam (Ednition) as the roster ingestion source, consuming OneRoster-formatted CSV data
+  through event-driven Lambda handlers to automate onboarding across multiple schools.
+- Built a Calendar Service end to end (event modeling, ingestion, calendar-date processing following the
+  EdFi standard schema) using a CQRS-based read model for user-course aggregations and progress tracking,
+  improving read throughput by roughly 35% while supporting multi-tenancy.
+- Architected and delivered an event-driven transcript generation platform using AWS SQS, Lambda,
+  DynamoDB, API Gateway, and S3, maintaining 99.9% availability.
+- Reduced frontend load times by cutting FCP and LCP by ~0.5s via image optimization, lazy loading, and
+  code splitting; refactored 15+ legacy modules into a reusable component library.
+- Fixed a cross-tenant session-leakage vulnerability across the Onboarding and Teaching applications,
+  restoring correct tenant, session, and domain isolation.
+- Built and documented an internal service SDK and provisioned infrastructure via AWS CDK across 5
+  microservices.
+- Shipped 15+ REST APIs and 10+ GraphQL APIs with JWT authentication, request validation, caching, rate
+  limiting, centralized structured logging, and automated error handling, reducing incident-investigation
+  time by roughly 30%.
+
+Side project - Linkora (full-stack URL shortener): Nuxt 4/Vue 3 SSR client with a modular Express
+5/TypeScript REST API; single-table DynamoDB model with cursor-based pagination and native TTL attributes;
+password hashing, intent-scoped authentication, schema validation; two-AZ cloud architecture with traffic
+distribution, auto scaling, and rolling CI/CD.
+
+Education: Bachelor of Technology in Computer Science and Engineering, Maharaja Agrasen Institute of
+Technology, GGSIP University, Delhi - CGPA 8.95, 2025.
+
+Technical skills: Java, JavaScript, TypeScript, SQL, React.js, Vue.js, Next.js, Node.js, Express.js, REST,
+GraphQL, Spring Boot, Spring MVC, NestJS, Microservices, Kafka, RabbitMQ, Kubernetes, Docker, AWS (Lambda,
+S3, SQS, SNS, CDK, CloudFront, EC2, VPC), MySQL, PostgreSQL, MongoDB, DynamoDB, CI/CD, CQRS, Event-Driven
+Architecture, SAGA Pattern, Distributed Systems, Data Modeling.

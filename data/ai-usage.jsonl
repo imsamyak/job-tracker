@@ -1,0 +1,12 @@
+{"ts":"2026-09-24T19:39:04.637459200Z","feature":"intake-text","usd":0.08421500000000001,"inputTokens":9,"outputTokens":2858,"cacheReadTokens":0,"cacheCreationTokens":34958,"turns":2}
+{"ts":"2026-09-24T20:19:45.382577700Z","feature":"intake-text","usd":0.091613,"inputTokens":9,"outputTokens":4358,"cacheReadTokens":0,"cacheCreationTokens":34907,"turns":2}
+{"ts":"2026-09-24T20:21:08.204318100Z","feature":"intake-text","usd":0.07103599999999999,"inputTokens":2,"outputTokens":312,"cacheReadTokens":0,"cacheCreationTokens":34737,"turns":2}
+{"ts":"2026-09-24T20:49:21.446037700Z","feature":"intake-text","usd":0.0137648,"inputTokens":2,"outputTokens":254,"cacheReadTokens":28948,"cacheCreationTokens":4799,"turns":2}
+{"ts":"2026-09-24T20:50:01.923002200Z","feature":"fit-score","usd":0.0824204,"inputTokens":19,"outputTokens":1525,"cacheReadTokens":34284,"cacheCreationTokens":35674,"turns":3}
+{"ts":"2026-09-24T20:50:39.535526800Z","feature":"intake-text","usd":0.0166428,"inputTokens":2,"outputTokens":284,"cacheReadTokens":28948,"cacheCreationTokens":6163,"turns":2}
+{"ts":"2026-09-24T20:50:43.580454700Z","feature":"intake-text","usd":0.0165408,"inputTokens":2,"outputTokens":280,"cacheReadTokens":28948,"cacheCreationTokens":6122,"turns":2}
+{"ts":"2026-09-24T20:51:23.158181700Z","feature":"fit-score","usd":0.033291100000000004,"inputTokens":19,"outputTokens":2044,"cacheReadTokens":63981,"cacheCreationTokens":8327,"turns":3}
+{"ts":"2026-09-24T20:51:25.879890200Z","feature":"fit-score","usd":0.0321486,"inputTokens":19,"outputTokens":1821,"cacheReadTokens":64126,"cacheCreationTokens":8306,"turns":3}
+{"ts":"2026-09-24T21:46:32.643959900Z","feature":"intake-text","usd":0.0176193,"inputTokens":5,"outputTokens":346,"cacheReadTokens":62463,"cacheCreationTokens":4819,"turns":2}
+{"ts":"2026-09-24T21:47:41.709410400Z","feature":"intake-text","usd":0.015253800000000001,"inputTokens":2,"outputTokens":317,"cacheReadTokens":28948,"cacheCreationTokens":5386,"turns":2}
+{"ts":"2026-09-24T21:48:25.093893800Z","feature":"fit-score","usd":0.0312273,"inputTokens":19,"outputTokens":1892,"cacheReadTokens":63663,"cacheCreationTokens":7691,"turns":3}

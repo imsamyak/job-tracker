@@ -1,0 +1,142 @@
+/* Plain CSS version of style.scss. The PDF renderer does not support flexbox, so the two flex rows
+   (.contacts and .item-header) use inline items and a table layout instead.
+   Font sizes are kept at their original, safely-fits-one-page values; only spacing (margins, line-height,
+   page padding) was made more generous, to reduce trailing blank space without risking a bullet line
+   wrapping onto an extra line (which grows page height in a much less predictable way than a bit more
+   margin does). ResumePdfRenderer throws if a render ever exceeds one page - that check is what actually
+   guarantees the one-page constraint, not this file. */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0.28in 0.45in;
+    margin: 0;
+    font-size: 9.5pt;
+    color: #000;
+    line-height: 1.27;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 3px;
+    font-size: 20pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.contacts {
+    text-align: center;
+    list-style: none;
+    margin: 5px 0 8px 0;
+    padding: 0;
+}
+
+.contacts li {
+    display: inline;
+    font-size: 8.5pt;
+    margin: 0 5px;
+}
+
+.contacts li a {
+    color: black;
+    text-decoration: none;
+}
+
+.section {
+    margin-bottom: 7px;
+}
+
+.section-title {
+    font-size: 11pt;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+}
+
+.summary {
+    font-size: 9pt;
+    margin-bottom: 7px;
+    line-height: 1.32;
+}
+
+.item {
+    margin-bottom: 7px;
+}
+
+.item-header {
+    display: table;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.item-header > div {
+    display: table-cell;
+    vertical-align: baseline;
+}
+
+.item-header > .item-date,
+.item-header > .item-location {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: 9.5pt;
+}
+
+.item-date,
+.item-location {
+    font-style: italic;
+    font-size: 9.5pt;
+}
+
+.item-subtitle {
+    font-style: italic;
+    font-size: 9.5pt;
+    margin-top: 0;
+    margin-bottom: 1px;
+}
+
+.project-details {
+    font-size: 9pt;
+    margin-bottom: 2px;
+}
+
+.bullet-list {
+    margin: 0;
+    padding-left: 18px;
+    margin-bottom: 7px;
+}
+
+.bullet-list li {
+    font-size: 9pt;
+    margin-bottom: 1px;
+    line-height: 1.32;
+}
+
+.skills-list {
+    font-size: 9pt;
+    line-height: 1.4;
+    margin-bottom: 7px;
+}
+
+.skills-list div {
+    margin-bottom: 2px;
+}
+
+.skills-list span {
+    font-weight: bold;
+}
