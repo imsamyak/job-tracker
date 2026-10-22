@@ -30,8 +30,14 @@ export type ResumeTemplate = 'classic' | 'modern' | 'compact'
 
 export type Use = 'resume' | 'coverLetter' | 'referral'
 
+/** The kinds of role a summary can be written for; the job's main stack picks one. */
+export const SUMMARY_VARIANTS = ['backend', 'frontend', 'full-stack', 'cloud'] as const
+export type SummaryVariant = (typeof SUMMARY_VARIANTS)[number]
+
 export interface ProfileData {
   personal: { name: string; headline: string; experience: string; location: string; about: string; notice: string }
+  /** A summary per kind of role; one left empty falls back to the About text. */
+  summaries: Record<SummaryVariant, string>
   experience: Experience[]
   projects: Project[]
   skills: SkillGroup[]
@@ -70,6 +76,7 @@ Regards,
 
 export const EMPTY_PROFILE: ProfileData = {
   personal: { name: '', headline: '', experience: '', location: '', about: '', notice: '' },
+  summaries: { backend: '', frontend: '', 'full-stack': '', cloud: '' },
   experience: [],
   projects: [],
   skills: [],
@@ -100,6 +107,7 @@ export function loadProfile(): ProfileData {
     const d = JSON.parse(raw)
     return {
       personal: { ...EMPTY_PROFILE.personal, ...d.personal },
+      summaries: { ...EMPTY_PROFILE.summaries, ...d.summaries },
       experience: d.experience ?? [],
       // a project used to have one link: it becomes the first of its links
       projects: (d.projects ?? []).map((p: Partial<Project> & { link?: string }) => ({ ...p, links: p.links ?? (p.link ? [p.link] : []) })),
@@ -176,6 +184,7 @@ export function fromResume(x: ExtractedProfile): ProfileData {
     items.map((i) => ({ id: newId(), label: i.label, value: i.value }))
   return {
     personal: { ...x.personal, notice: '' },
+    summaries: { ...EMPTY_PROFILE.summaries },
     experience: x.experience.map((e) => ({ id: newId(), ...e })),
     projects: x.projects.map((p) => ({ id: newId(), name: p.name, links: p.links.map((l) => l.value), stack: p.stack, details: p.details })),
     skills: x.skills.map((g) => ({ id: newId(), name: g.name, items: g.items })),

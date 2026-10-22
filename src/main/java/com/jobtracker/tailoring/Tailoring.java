@@ -34,6 +34,15 @@ public final class Tailoring {
      */
     public record Tailored(List<String> stacks, Skills skills) {}
 
+    /** One job of the user's experience and its bullets, one per line as written. */
+    public record BulletSource(String id, List<String> bullets) {}
+
+    /** A bullet that made it onto the page, exactly as written; {@code named} are the skills the job names that it shows. */
+    public record Bullet(String text, List<String> named) {}
+
+    /** The bullets chosen for one entry, best first. */
+    public record EntryBullets(String id, List<Bullet> bullets) {}
+
     private final SkillSelector selector;
     private final JdReader reader;
 
@@ -78,6 +87,44 @@ public final class Tailoring {
         if (extraKeywords != null) keywords.addAll(extraKeywords);
         if (reading.stacks().isEmpty()) return new Tailored(List.of(), new Skills(List.of(), List.copyOf(keywords)));
         return new Tailored(reading.stacks(), skillsFor(reading.stacks(), keywords));
+    }
+
+    /**
+     * Chooses and orders the user's existing bullets for one job, without rewriting any of them. A bullet ranks by the skills of
+     * the job it names, then the skills the job's resume implies, then how many skills it shows at all, then how early it was
+     * written. Bullets are taken best-first across the entries until the page lines run out.
+     *
+     * @param extraKeywords skills already known about the job from elsewhere (may be null)
+     * @param maxLines      lines of the page the bullets may fill; a bullet is about {@value BulletPicker#CHARS_PER_LINE} characters per line
+     */
+    public List<EntryBullets> pickBullets(String jobDescription, Collection<String> extraKeywords, List<BulletSource> entries, int maxLines) {
+        Tailored t = tailor(jobDescription, extraKeywords);
+        Set<String> wanted = new java.util.LinkedHashSet<>(selector.namedIn(jobDescription));
+        if (extraKeywords != null) {
+            wanted.addAll(selector.namedIn(String.join("\n", extraKeywords)));
+        }
+        Set<String> shown = new java.util.HashSet<>();
+        t.skills().sections().forEach(s -> shown.addAll(s.skills()));
+        shown.removeAll(wanted);
+        List<BulletPicker.Source> sources = entries.stream().map(e -> new BulletPicker.Source(e.id(), e.bullets() == null ? List.of() : e.bullets())).toList();
+        return new BulletPicker(selector::namedIn).pick(wanted, shown, sources, maxLines).stream()
+                .map(r -> new EntryBullets(r.id(), r.bullets().stream().map(b -> new Bullet(b.text(), b.named())).toList()))
+                .toList();
+    }
+
+    /**
+     * Which of the profile's summaries suits a job: {@code backend}, {@code frontend}, {@code full-stack} or {@code cloud}.
+     * A job that stresses both a frontend and a backend stack is full-stack; none is {@code null} (use the general summary).
+     */
+    public static String summaryVariant(List<String> stacks) {
+        if (stacks == null || stacks.isEmpty()) return null;
+        boolean front = stacks.stream().anyMatch(s -> s.equals("react") || s.equals("vue"));
+        boolean back = stacks.stream().anyMatch(s -> s.equals("java") || s.equals("node"));
+        if (stacks.get(0).equals("cloud") && !front) return "cloud";
+        if (front && back) return "full-stack";
+        if (front) return "frontend";
+        if (back) return "backend";
+        return "cloud";
     }
 
     /** The kinds of role the rules understand (react, vue, node, java, cloud). */

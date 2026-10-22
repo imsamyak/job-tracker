@@ -175,7 +175,10 @@ export const api = {
   askAi: (messages: { role: 'user' | 'assistant'; text: string }[]) =>
     call<{ reply: string; done: string[]; confirm: { label: string; jobId: number }[]; open: string | null }>('/api/agent/chat', json('POST', { messages })),
   /** What the resume for this job would show: its kind of role and the skill lines. Free; nothing to wait for. */
-  tailored: (jobId: number) => call<{ stacks: string[]; sections: { label: string; skills: string[] }[]; unmatched: string[] }>(`/api/jobs/${jobId}/tailored`),
+  tailored: (jobId: number) => call<{ stacks: string[]; summary: string | null; sections: { label: string; skills: string[] }[]; unmatched: string[] }>(`/api/jobs/${jobId}/tailored`),
+  /** The profile's own experience bullets, chosen and ordered for this job (nothing rewritten). entries: one per job, bullets one per line. */
+  tailoredBullets: (jobId: number, entries: { id: string; bullets: string[] }[], maxLines?: number) =>
+    call<{ id: string; bullets: { text: string; named: string[] }[] }[]>(`/api/jobs/${jobId}/bullets`, json('POST', { entries, maxLines })),
   notifications: () => call<Notification[]>('/api/notifications'),
   mailSync: () => call<MailSyncState>('/api/mail-sync'),
   /** One Gmail account. from (yyyy-mm-dd): read all its mail since that day again; without it, only what is new since it was last read. */

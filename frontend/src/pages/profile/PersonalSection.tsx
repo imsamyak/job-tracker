@@ -1,5 +1,6 @@
 import GrowTextarea from './GrowTextarea'
 import RewriteButton from './RewriteButton'
+import { SUMMARY_VARIANTS } from '../../profileStore'
 import type { SectionProps } from './types'
 
 /** Who you are, in a few lines. Used as the name, headline and summary in everything you generate. */
@@ -21,6 +22,18 @@ export default function PersonalSection({ data, update }: SectionProps) {
       <div className="pgrid__full">
         <RewriteButton kind="ABOUT" text={p.about} context={[p.headline, p.experience && `${p.experience} of experience`].filter(Boolean).join(', ')}
                        onUse={(next) => update((d) => ({ ...d, personal: { ...d.personal, about: next } }))} />
+      </div>
+      <div className="pgrid__full summaries">
+        <h3>Summary per kind of role</h3>
+        <p className="muted">The job's main stack picks one for its resume; an empty one falls back to About you.</p>
+        {SUMMARY_VARIANTS.map((v) => (
+          <label key={v}>{v}
+            <GrowTextarea rows={3} value={data.summaries[v]} placeholder={`Summary for ${v} roles`}
+                          onChange={(e) => update((d) => ({ ...d, summaries: { ...d.summaries, [v]: e.target.value } }))} />
+            <RewriteButton kind="ABOUT" text={data.summaries[v]} context={`${v} roles`}
+                           onUse={(next) => update((d) => ({ ...d, summaries: { ...d.summaries, [v]: next } }))} />
+          </label>
+        ))}
       </div>
     </div>
   )
