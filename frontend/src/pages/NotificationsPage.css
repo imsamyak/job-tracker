@@ -1,0 +1,14 @@
+.notes { max-width: 61.5rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.7rem; }
+.notes .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; align-self: flex-start; }
+.notes h1 { margin: 0; font-size: 1.6rem; }
+.notes > p { margin: 0; }
+.notes__list { list-style: none; margin: 0.4rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.notes__empty { padding: 1.4rem; color: var(--muted); }
+.note { padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.note__head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+.note__time { margin-left: auto; font-size: 0.8rem; }
+.note__new { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--brand); border-radius: 999px; padding: 0.1rem 0.5rem; }
+.note__what { margin: 0; }
+.note__mail { margin: 0; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note__actions { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+.note__actions .btn { height: 32px; padding: 0 0.85rem; font-size: 0.82rem; text-decoration: none; }

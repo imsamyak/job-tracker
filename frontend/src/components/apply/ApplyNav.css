@@ -1,0 +1,16 @@
+/* Sticky, on the right of the apply window, under the top bar. */
+.anav { position: sticky; top: calc(var(--header-h) + 1rem); align-self: start; padding: 0.5rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.anav__item { display: flex; align-items: center; gap: 0.75rem; width: 100%; padding: 0.6rem 0.75rem; border: none; border-radius: 9px; background: none; color: var(--text-2); font-weight: 500; text-align: left; cursor: pointer; transition: background 0.12s, color 0.12s; }
+.anav__item svg { flex: none; width: 18px; height: 18px; }
+.anav__item:hover { background: #f3f4f8; color: var(--text); }
+.anav__item--active, .anav__item--active:hover { background: var(--brand-soft); color: var(--brand-dark); }
+
+.anav--tall { height: calc(100vh - var(--header-h) - 2rem); }
+.anav__item--end { margin-top: auto; }
+
+/* Small windows: icons only. */
+@media (max-width: 1000px) {
+  .anav { padding: 0.4rem; align-items: center; }
+  .anav__text { display: none; }
+  .anav__item { justify-content: center; width: 40px; height: 40px; padding: 0; }
+}

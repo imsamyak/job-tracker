@@ -1,0 +1,11 @@
+.acct { position: relative; margin-left: auto; }
+.acct > .header__profile { margin-left: 0; border: none; background: none; cursor: pointer; padding: 0; }
+.acct > .header__profile:hover { background: #f1f3f8; }
+.acct > .header__profile--on, .acct > .header__profile--on:hover { background: var(--brand-soft); }
+
+.acct__menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 170px; padding: 0.35rem; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-md); z-index: 30; animation: pop 0.12s ease-out; }
+.acct__item { display: flex; align-items: center; gap: 0.65rem; padding: 0.55rem 0.7rem; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; }
+.acct__item svg { width: 18px; height: 18px; color: var(--text-2); }
+.acct__item:hover { background: #f3f4f8; }
+.acct__item--on, .acct__item--on:hover { background: var(--brand-soft); color: var(--brand-dark); }
+.acct__item--on svg { color: var(--brand-dark); }

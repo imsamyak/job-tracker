@@ -1,0 +1,70 @@
+.apps { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.toolbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+.toolbar h1 { margin: 0; font-size: 1.6rem; }
+.toolbar__actions { display: flex; align-items: center; gap: 0.6rem; }
+.toolbar__sub { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.9rem; }
+
+.list { overflow: hidden; }
+.list__scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th {
+  text-align: left; padding: 0.8rem 1.1rem; color: var(--muted); font-weight: 600; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.05em; background: #fafbfd; border-bottom: 1px solid var(--line);
+}
+td { padding: 0.95rem 1.1rem; border-bottom: 1px solid #f0f2f7; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+.strong { font-weight: 600; }
+td a { color: var(--text); text-decoration: none; }
+.role { color: var(--text-2); }
+.row { cursor: pointer; transition: background 0.1s; }
+.row:hover td { background: #f8faff; }
+.row:hover td a { color: var(--brand); }
+
+.actions-cell { width: 1%; white-space: nowrap; }
+.actions { display: flex; gap: 0.15rem; justify-content: flex-end; }
+
+.empty { text-align: center; color: var(--muted); padding: 3rem 1rem; }
+.empty__title { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+
+/* Every column stays visible; on a very narrow screen the table scrolls sideways instead of hiding any. */
+th, td { white-space: nowrap; }
+td.role { white-space: normal; min-width: 9rem; }
+@media (max-width: 1000px) {
+  .main { padding-left: 1rem; padding-right: 1rem; }
+  table { font-size: 0.88rem; }
+  th, td { padding-left: 0.6rem; padding-right: 0.6rem; }
+  .actions-cell { padding-left: 0.2rem; padding-right: 0.4rem; }
+}
+
+.actions-head { text-align: right; }
+.iconbtn--update:hover { background: var(--brand-soft); color: var(--brand); }
+
+/* Sortable column headers: the whole header is the button. */
+.sorthead {
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0; border: none; background: none; cursor: pointer;
+  font: inherit; text-transform: inherit; letter-spacing: inherit; color: inherit;
+}
+.sorthead svg { opacity: 0.45; }
+.sorthead:hover { color: var(--text); }
+.sorthead:hover svg { opacity: 0.9; }
+.sorthead--active { color: var(--text); }
+.sorthead--active svg { opacity: 1; color: var(--brand); }
+
+/* search */
+.search { position: relative; display: flex; align-items: center; color: var(--muted); }
+.search svg { position: absolute; left: 0.75rem; pointer-events: none; }
+.search input { width: 220px; height: 38px; padding: 0 0.8rem 0 2.2rem; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: inherit; color: var(--text); }
+.search input:focus { outline: 3px solid #dbeafe; border-color: var(--brand); }
+
+/* the posting's own job id, always shown under the company name */
+td.strong { position: relative; }
+.jobid { position: absolute; left: 1.1rem; bottom: 0.3rem; max-width: calc(100% - 1.4rem); overflow: hidden; text-overflow: ellipsis; font-size: 0.7rem; font-weight: 500; color: var(--muted); white-space: nowrap; pointer-events: none; }
+
+/* the toolbar is just search, filter and add; the search takes all the room left */
+.toolbar { align-items: center; }
+.toolbar__actions { flex: 1; }
+.search { flex: 1; }
+.search input { width: 100%; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.list__foot { text-align: right; margin: 0; padding: 0.7rem 1.1rem; border-bottom: 1px solid #f0f2f7; color: var(--muted); font-size: 0.85rem; }

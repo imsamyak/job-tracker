@@ -1,0 +1,77 @@
+/*
+ * Phone layout for the main app (the extension popup has its own). Loaded last, so it only has to say what
+ * is different on a narrow screen: tables become cards, the side navigations become a bar along the top of
+ * the page, dialogs get a little less padding, rows of buttons wrap.
+ */
+@media (max-width: 700px) {
+  .main { padding: 1rem 0.9rem 2rem; }
+
+  /* ----- jobs: search, filter and add on one line, the table as a list of cards ----- */
+  .toolbar { gap: 0.5rem; }
+  .toolbar__actions { width: 100%; gap: 0.4rem; min-width: 0; }
+  .search { min-width: 0; }
+
+  .list__scroll { overflow: visible; }
+  .list table, .list tbody { display: block; width: 100%; }
+  .list thead { display: none; }
+  .list tr:not(.row) { display: block; }
+  .list tr.row {
+    position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.9rem;
+    padding: 0.85rem 4.4rem 0.85rem 1rem; border-bottom: 1px solid #f0f2f7;
+  }
+  .list tr.row:last-child { border-bottom: none; }
+  .list tr.row:hover { background: #f8faff; }
+  .list tr.row td { display: block; padding: 0; border: none; background: none; white-space: normal; }
+  .list tr.row td:nth-child(1), .list tr.row td:nth-child(2) { flex: 1 0 100%; }
+  .list tr.row td:nth-child(3), .list tr.row td:nth-child(5) { font-size: 0.85rem; color: var(--text-2); }
+  /* no transform here: it would become the containing block of the status menu, which is positioned on screen */
+  .list tr.row td.actions-cell { position: absolute; right: 0.6rem; top: 0; bottom: 0; width: auto; display: flex; align-items: center; }
+  .jobid { position: static; display: inline; margin-left: 0.5rem; max-width: none; }
+  .list__foot { text-align: left; }
+
+  /* ----- pages with a side navigation: the navigation becomes a sticky bar of icons above the page ----- */
+  .pwin, .awin { grid-template-columns: minmax(0, 1fr); gap: 0.8rem; }
+  .awin .anav { order: -1; }
+  .anav {
+    position: sticky; top: calc(var(--header-h) + 0.4rem); z-index: 5; flex-direction: row; justify-content: flex-start;
+    overflow-x: auto; padding: 0.3rem; gap: 0.2rem;
+  }
+  .anav__item { flex: none; }
+  .psec { scroll-margin-top: calc(var(--header-h) + 4.4rem); padding: 1.1rem 1rem 1.2rem; }
+  .pwin__end { height: 30vh; }
+
+  /* ----- profile and settings ----- */
+  .profile__head { flex-wrap: wrap; gap: 0.7rem; }
+  .profile__avatar { width: 46px; height: 46px; font-size: 1rem; }
+  .profile__head h1 { font-size: 1.3rem; }
+  .entry__half { flex-basis: 100%; }
+  .look { flex-basis: 90px; }
+  .tpl__row { flex-wrap: wrap; }
+  .conn__head { flex-wrap: wrap; row-gap: 0.6rem; }
+  .conn__text { flex: 1 1 calc(100% - 56px); }
+  .conn__head > .btn { margin-left: calc(40px + 0.9rem); }
+  .settings h1 { font-size: 1.4rem; }
+
+  /* ----- one job, and applying to it ----- */
+  .jobpage__head h1, .applypage__head h1 { font-size: 1.5rem; }
+  .jobpage__card { padding: 1.1rem 1rem; }
+  .facts { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .applypage__head { align-items: stretch; }
+  .applypage__actions { flex-wrap: wrap; }
+  .acard { padding: 1rem; }
+  .acard__foot { flex-wrap: wrap; }
+
+  /* ----- dialogs ----- */
+  .modal { padding: 4vh 0.6rem 0.6rem; }
+  .cmodal { padding: 1rem; }
+  .addbox { padding: 1rem; }
+  .addbox__bar { flex-wrap: wrap; }
+  .addbox__hint { display: none; }
+  .addbox__image { flex-wrap: wrap; }
+  .addbox__image img { max-width: 100%; }
+  .fdrawer__head, .fdrawer__foot { padding-left: 1rem; padding-right: 1rem; }
+  .fdrawer__body { padding-left: 1rem; padding-right: 1rem; }
+
+  /* ----- footer ----- */
+  .footer__inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+}

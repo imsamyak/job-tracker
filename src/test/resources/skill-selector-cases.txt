@@ -1,0 +1,101 @@
+@@ java | Java
+Languages: Java, JavaScript (ES6+), TypeScript, SQL
+Backend & APIs: Spring Boot, JPA, Hibernate, Spring MVC, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Cloud & DevOps: AWS Lambda, AWS S3, AWS SQS, AWS SNS, CloudWatch, Docker, CI/CD, CloudFront, EC2, ECS, ALB, VPC, AWS CDK
+Tools & Testing: Git, GitHub, Postman, SonarQube
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ node | Node.js
+Languages: JavaScript (ES6+), TypeScript, SQL
+Backend & APIs: Node.js, Express.js, NestJS, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Cloud & DevOps: AWS Lambda, AWS S3, AWS SQS, AWS SNS, CloudWatch, Docker, CI/CD, CloudFront, EC2, ECS, ALB, VPC, AWS CDK
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ react | React
+Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3
+Frontend & UI: React.js, Next.js, Redux, Tailwind CSS, SCSS
+Backend & APIs: Node.js, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Cloud & DevOps: AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ vue | Vue
+Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3
+Frontend & UI: Vue.js, Nuxt.js, Pinia, Tailwind CSS, SCSS
+Backend & APIs: Node.js, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Cloud & DevOps: AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ react,vue | React, Vue
+Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3
+Frontend & UI: React.js, Vue.js, Next.js, Redux, Nuxt.js, Pinia, Tailwind CSS, SCSS
+Backend & APIs: Node.js, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Cloud & DevOps: AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ java,react | Java, React, Kafka
+Languages: Java, JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3
+Frontend & UI: React.js, Next.js, Redux, Tailwind CSS, SCSS
+Backend & APIs: Spring Boot, JPA, Hibernate, Spring MVC, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Messaging: Kafka, AWS SQS, AWS SNS
+Cloud & DevOps: AWS Lambda, AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ react,node | React, Node.js, Kafka
+Languages: JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3
+Frontend & UI: React.js, Next.js, Redux, Tailwind CSS, SCSS
+Backend & APIs: Node.js, Express.js, NestJS, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Messaging: Kafka, AWS SQS, AWS SNS
+Cloud & DevOps: AWS Lambda, AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ java | Java, Kafka, RabbitMQ
+Languages: Java, JavaScript (ES6+), TypeScript, SQL
+Backend & APIs: Spring Boot, JPA, Hibernate, Spring MVC, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Messaging: Kafka, RabbitMQ
+Cloud & DevOps: AWS Lambda, AWS S3, CloudWatch, Docker, CI/CD, CloudFront, EC2, ECS, ALB, VPC, AWS CDK
+Tools & Testing: Git, GitHub, Postman, SonarQube
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ java,vue | Java, Vue, Kafka, Redis, MongoDB, Kubernetes
+Languages: Java, JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3
+Frontend & UI: Vue.js, Nuxt.js, Pinia, Tailwind CSS, SCSS
+Backend & APIs: Spring Boot, JPA, Hibernate, Spring MVC, REST, OpenAPI, GraphQL
+Databases: MongoDB, Redis, MySQL, PostgreSQL, DynamoDB
+Messaging: Kafka, AWS SQS, AWS SNS
+Cloud & DevOps: Kubernetes, AWS Lambda, AWS S3, CloudWatch, Docker, CI/CD
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest, Playwright
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing, Core Web Vitals
+AI-Assisted Development: GitHub Copilot, Claude
+
+@@ node | Node.js, RMQ, k8s
+Languages: JavaScript (ES6+), TypeScript, SQL
+Backend & APIs: Node.js, Express.js, NestJS, REST, OpenAPI, GraphQL
+Databases: MySQL, PostgreSQL, DynamoDB
+Messaging: RabbitMQ, AWS SQS, AWS SNS
+Cloud & DevOps: Kubernetes, AWS Lambda, AWS S3, CloudWatch, Docker, CI/CD, CloudFront, EC2, ECS, ALB, VPC, AWS CDK
+Tools & Testing: Git, GitHub, Postman, SonarQube, Vitest
+Concepts: SOLID Principles, API Design, Agile Methodologies, Data Structures & Algorithms, OOP, Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, Cloud Computing
+AI-Assisted Development: GitHub Copilot, Claude
+

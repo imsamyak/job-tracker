@@ -1,0 +1,15 @@
+.agentbtn { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; height: 34px; padding: 0 0.8rem; border: 1px solid #c7d2fe; border-radius: 999px; background: var(--brand-soft); color: var(--brand-dark); font: inherit; font-weight: 600; cursor: pointer; }
+.agentbtn svg { width: 16px; height: 16px; }
+.agentbtn:hover { background: #dfe8ff; }
+.header__inner .agentbtn + .bell { margin-left: 0.3rem; }
+.agent { position: fixed; top: var(--header-h); right: 0; bottom: 0; z-index: 40; width: min(400px, 100vw); display: flex; flex-direction: column; background: #fff; border-left: 1px solid var(--line); box-shadow: var(--shadow-md); }
+.agent__head { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1rem; border-bottom: 1px solid var(--line); }
+.agent__thread { flex: 1; min-height: 0; overflow-y: auto; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.agent__empty { margin: auto 0; display: flex; flex-direction: column; gap: 0.8rem; }
+.agent__empty p { margin: 0; }
+.agent__done { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; opacity: 0.9; }
+.agent__confirm { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.agent__confirm span { flex: 1 1 100%; }
+.agent__confirm .btn { height: 30px; padding: 0 0.8rem; font-size: 0.8rem; }
+.agent .askchat__composer { margin: 0.6rem 0.9rem 0.9rem; flex: none; }
+@media (max-width: 700px) { .agentbtn span { display: none; } .agentbtn { padding: 0 0.6rem; } }

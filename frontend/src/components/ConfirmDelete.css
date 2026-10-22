@@ -1,0 +1,7 @@
+.confirm { padding: 1.5rem; }
+.confirm h2 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+.confirm p { margin: 0 0 0.4rem; }
+.confirm__note { color: #6b7280; font-size: 0.9rem; }
+.confirm__bar { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.25rem; }
+.btn.btn--primary.btn--red { background: #dc2626; border-color: #dc2626; }
+.btn.btn--primary.btn--red:hover:not(:disabled) { background: #b91c1c; }

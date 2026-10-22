@@ -1,0 +1,130 @@
+{
+  "_readme": {
+    "how_to_use": [
+      "1. Pick stacks from the JD (react, vue, node, java, cloud). Any combination works. The stack the JD stresses first is the PRIMARY stack.",
+      "2. INCLUDE: for each skill, it is included when (a) the JD names it (its name or any alias, case-insensitive, whole words), OR (b) its 'include' condition is true. Then 'exclude' removes it if true.",
+      "   include may be: true (always), false (only when the JD names it), or a condition object.",
+      "3. CONDITIONS (one operator per object, combine with all/any/not): { stack: [..] } any of these stacks picked | { notStack: [..] } none picked | { named: [..] } any of these skills named in the JD | { namedAll: [..] } all named | { notNamed: [..] } none named | { all: [..] } | { any: [..] } | { not: cond }.",
+      "4. rank: 'related' lists the skill after core skills in its category; default is core. A skill named in the JD always sorts first.",
+      "5. requires: including a skill also includes each listed prerequisite, recursively, even if that prerequisite is not otherwise included. Same-category prerequisites are listed before the skill that needs them; a skill included only as a prerequisite goes at the end of its category.",
+      "6. pulls: if a skill is NAMED in the JD, the listed skills are also included and listed after it, recursively (React named pulls Next.js and Redux; Vue named pulls Nuxt.js and Pinia). Merely picking the stack does not trigger it.",
+      "7. exclude (condition): drops the skill after everything else. moveTo: [{ when: cond, category }] moves an included skill into another source category (first match wins).",
+      "8. GROUPS: skills keep their source 'categories'; the resume shows the groups in 'outputGroups' (max 9). A group holds its sources one after another; empty groups are dropped. Group order = groupOrder[primary stack]. promoteGroup: if react or vue is picked, 'Frontend & UI' goes directly after Languages.",
+      "9. SKILL ORDER inside a category: same-category prerequisite first; otherwise JD-named skills, then core, then related, ties in file order; prerequisite-only skills last.",
+      "10. Only include skills the candidate really has. If the JD asks for a skill not listed here, do not invent it.",
+      "11. 'why' is a human note explaining an exception; the code ignores it."
+    ],
+    "stacks": { "react": "React frontend", "vue": "Vue frontend", "node": "Node.js backend", "java": "Java / Spring Boot backend", "cloud": "AWS / serverless / infra-heavy backend" }
+  },
+  "categories": ["Languages", "Frontend", "Styling & UI", "Backend", "APIs", "Databases & Caching", "Messaging", "Cloud & DevOps", "Testing & Tools", "Concepts", "AI-Assisted Development"],
+  "outputGroups": [
+    { "label": "Languages", "sources": ["Languages"] },
+    { "label": "Frontend & UI", "sources": ["Frontend", "Styling & UI"] },
+    { "label": "Backend & APIs", "sources": ["Backend", "APIs"] },
+    { "label": "Databases", "sources": ["Databases & Caching"] },
+    { "label": "Messaging", "sources": ["Messaging"] },
+    { "label": "Cloud & DevOps", "sources": ["Cloud & DevOps"] },
+    { "label": "Tools & Testing", "sources": ["Testing & Tools"] },
+    { "label": "Concepts", "sources": ["Concepts"] },
+    { "label": "AI-Assisted Development", "sources": ["AI-Assisted Development"] }
+  ],
+  "promoteGroup": { "group": "Frontend & UI", "whenStacksPicked": ["react", "vue"], "position": "directly after Languages" },
+  "groupOrder": {
+    "react": ["Languages", "Frontend & UI", "Backend & APIs", "Databases", "Messaging", "Cloud & DevOps", "Tools & Testing", "Concepts", "AI-Assisted Development"],
+    "vue": ["Languages", "Frontend & UI", "Backend & APIs", "Databases", "Messaging", "Cloud & DevOps", "Tools & Testing", "Concepts", "AI-Assisted Development"],
+    "node": ["Languages", "Backend & APIs", "Databases", "Messaging", "Cloud & DevOps", "Frontend & UI", "Tools & Testing", "Concepts", "AI-Assisted Development"],
+    "java": ["Languages", "Backend & APIs", "Databases", "Messaging", "Cloud & DevOps", "Frontend & UI", "Tools & Testing", "Concepts", "AI-Assisted Development"],
+    "cloud": ["Languages", "Cloud & DevOps", "Backend & APIs", "Databases", "Messaging", "Frontend & UI", "Tools & Testing", "Concepts", "AI-Assisted Development"]
+  },
+  "skills": {
+    "Languages": [
+      { "name": "JavaScript (ES6+)", "aliases": ["JavaScript", "JS", "ES6"], "include": { "stack": ["react", "vue", "node", "java", "cloud"] } },
+      { "name": "TypeScript", "include": { "stack": ["react", "vue", "node", "java", "cloud"] }, "requires": ["JavaScript (ES6+)"] },
+      { "name": "Java", "include": { "stack": ["java", "cloud"] } },
+      { "name": "SQL", "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "HTML5", "include": { "stack": ["react", "vue"] } },
+      { "name": "CSS3", "include": { "stack": ["react", "vue"] } }
+    ],
+    "Frontend": [
+      { "name": "React.js", "aliases": ["React", "ReactJS"], "include": { "stack": ["react"] }, "requires": ["JavaScript (ES6+)", "HTML5", "CSS3"], "pulls": ["Next.js", "Redux"] },
+      { "name": "Next.js", "aliases": ["nextjs"], "include": false, "requires": ["React.js"] },
+      { "name": "Redux", "include": false, "requires": ["React.js"] },
+      { "name": "Vue.js", "aliases": ["Vue", "VueJS"], "include": { "stack": ["vue"] }, "requires": ["JavaScript (ES6+)", "HTML5", "CSS3"], "pulls": ["Nuxt.js", "Pinia"] },
+      { "name": "Nuxt.js", "aliases": ["nuxt"], "include": false, "requires": ["Vue.js"] },
+      { "name": "Pinia", "include": false, "requires": ["Vue.js"] },
+      { "name": "Server-Side Rendering", "aliases": ["SSR"], "include": false },
+      { "name": "jQuery", "include": false, "requires": ["JavaScript (ES6+)"] }
+    ],
+    "Styling & UI": [
+      { "name": "Tailwind CSS", "aliases": ["tailwind"], "include": { "stack": ["react", "vue"] }, "rank": "related", "requires": ["CSS3"] },
+      { "name": "SCSS", "aliases": ["sass"], "include": { "stack": ["react", "vue"] }, "rank": "related", "requires": ["CSS3"] }
+    ],
+    "Backend": [
+      { "name": "Node.js", "aliases": ["nodejs"], "include": { "any": [{ "stack": ["node", "cloud"] }, { "all": [{ "stack": ["react", "vue"] }, { "notNamed": ["Java", "Spring Boot"] }] }] }, "requires": ["JavaScript (ES6+)"], "why": "Default backend on React/Vue resumes; skipped when the JD names Java or Spring Boot." },
+      { "name": "Express.js", "aliases": ["express"], "include": { "stack": ["node", "cloud"] }, "requires": ["Node.js"] },
+      { "name": "NestJS", "aliases": ["nest.js"], "include": { "stack": ["node", "cloud"] }, "rank": "related", "requires": ["Node.js", "TypeScript"] },
+      { "name": "Spring Boot", "aliases": ["spring"], "include": { "stack": ["java"] }, "requires": ["Java"] },
+      { "name": "Spring MVC", "include": { "stack": ["java"] }, "rank": "related", "requires": ["Spring Boot", "JPA", "Hibernate"] },
+      { "name": "JPA", "aliases": ["Spring Data JPA", "Java Persistence API"], "include": { "stack": ["java"] }, "rank": "related", "requires": ["Java"] },
+      { "name": "Hibernate", "aliases": ["ORM"], "include": { "stack": ["java"] }, "rank": "related", "requires": ["Java", "JPA"] }
+    ],
+    "APIs": [
+      { "name": "REST", "aliases": ["RESTful", "REST API", "REST APIs"], "include": { "stack": ["react", "vue", "node", "java", "cloud"] } },
+      { "name": "GraphQL", "include": { "stack": ["react", "vue", "node", "java", "cloud"] }, "rank": "related" },
+      { "name": "OpenAPI", "aliases": ["Swagger"], "include": true }
+    ],
+    "Databases & Caching": [
+      { "name": "MySQL", "include": true },
+      { "name": "PostgreSQL", "aliases": ["postgres"], "include": true },
+      { "name": "MongoDB", "aliases": ["Mongo"], "include": false, "why": "Only when the JD names it." },
+      { "name": "DynamoDB", "include": true, "rank": "related" },
+      { "name": "Redis", "include": false, "why": "Only when the JD names it." }
+    ],
+    "Messaging": [
+      { "name": "Kafka", "aliases": ["Apache Kafka"], "include": false, "why": "Only when the JD names it." },
+      { "name": "RabbitMQ", "aliases": ["RMQ"], "include": false, "why": "Only when the JD names it." },
+      { "name": "AWS SQS", "aliases": ["SQS"], "include": { "stack": ["node", "java"] }, "exclude": { "namedAll": ["Kafka", "RabbitMQ"] }, "moveTo": [{ "when": { "notNamed": ["Kafka", "RabbitMQ"] }, "category": "Cloud & DevOps" }], "why": "Messaging rule: with Kafka only or RabbitMQ only it sits in Messaging; with neither it moves to Cloud & DevOps; with both it is dropped." },
+      { "name": "AWS SNS", "aliases": ["SNS"], "include": { "stack": ["node", "java"] }, "exclude": { "namedAll": ["Kafka", "RabbitMQ"] }, "moveTo": [{ "when": { "notNamed": ["Kafka", "RabbitMQ"] }, "category": "Cloud & DevOps" }], "why": "Messaging rule: with Kafka only or RabbitMQ only it sits in Messaging; with neither it moves to Cloud & DevOps; with both it is dropped." }
+    ],
+    "Cloud & DevOps": [
+      { "name": "AWS Lambda", "aliases": ["Lambda", "serverless"], "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "AWS S3", "aliases": ["S3"], "include": { "stack": ["react", "vue", "node", "java", "cloud"] } },
+      { "name": "CloudFront", "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "EC2", "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "ECS", "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "ALB", "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "CloudWatch", "include": true },
+      { "name": "VPC", "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "AWS CDK", "aliases": ["CDK", "Infrastructure as Code", "IaC"], "include": { "all": [{ "stack": ["node", "java", "cloud"] }, { "notStack": ["react", "vue"] }] }, "rank": "related", "why": "Backend-only resumes get it; skipped when a frontend stack is picked unless the JD names it." },
+      { "name": "Docker", "include": { "stack": ["react", "vue", "node", "java", "cloud"] } },
+      { "name": "CI/CD", "aliases": ["CICD", "pipelines"], "include": { "stack": ["react", "vue", "node", "java", "cloud"] } },
+      { "name": "Kubernetes", "aliases": ["k8s"], "include": false, "why": "Only when the JD names it." }
+    ],
+    "Testing & Tools": [
+      { "name": "Git", "include": true },
+      { "name": "GitHub", "include": true },
+      { "name": "Postman", "include": true },
+      { "name": "Vitest", "aliases": ["Jest"], "include": { "stack": ["react", "vue", "node", "cloud"] }, "rank": "related" },
+      { "name": "Playwright", "aliases": ["Cypress", "E2E"], "include": { "stack": ["react", "vue"] }, "rank": "related" },
+      { "name": "SonarQube", "include": true },
+      { "name": "Turborepo", "aliases": ["monorepo"], "include": false }
+    ],
+    "Concepts": [
+      { "name": "SOLID Principles", "aliases": ["SOLID"], "include": true },
+      { "name": "API Design", "include": true },
+      { "name": "Agile Methodologies", "aliases": ["Agile", "Scrum"], "include": true },
+      { "name": "Data Structures & Algorithms", "aliases": ["DSA"], "include": true },
+      { "name": "OOP", "include": true },
+      { "name": "Microservices", "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "Event-Driven Architecture", "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "Domain-Driven Design", "aliases": ["DDD"], "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "CQRS", "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "Cloud Computing", "include": { "stack": ["node", "java", "cloud"] } },
+      { "name": "Core Web Vitals", "aliases": ["Web Vitals", "LCP", "FCP", "CLS", "INP", "Performance Optimization", "Web Performance"], "include": { "stack": ["react", "vue"] } }
+    ],
+    "AI-Assisted Development": [
+      { "name": "GitHub Copilot", "include": true },
+      { "name": "Claude", "include": true }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+/* Contact rows and the add / edit form: shared by the contacts popup and the apply window's Contact section. */
+.crow { display: flex; align-items: center; gap: 0.7rem; padding: 0.65rem 0; border-top: 1px solid #f0f2f7; }
+.crow:first-child { border-top: none; }
+.crow__main { flex: 1; min-width: 0; }
+.crow__name { font-weight: 600; font-size: 0.88rem; }
+.crow__role { font-weight: 400; font-size: 0.82rem; color: var(--muted); }
+.crow__link { margin-top: 0.1rem; font-size: 0.8rem; }
+.crow__link a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--brand); text-decoration: none; overflow-wrap: anywhere; }
+.crow__link a:hover { text-decoration: underline; }
+
+.crow--add { padding-bottom: 0; }
+
+.cf { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
+/* the three fields share one row and shrink evenly; on a very narrow screen they wrap */
+.cf__row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cf__row input { flex: 1 1 8rem; min-width: 0; }
+.cf input { width: 100%; padding: 0.45rem 0.65rem; font-size: 0.82rem; color: var(--text); border: 1px solid var(--line-strong); border-radius: 9px; background: #fff; }
+.cf input:focus { outline: 3px solid #dbeafe; border-color: var(--brand); }
+.cf__bar { display: flex; align-items: center; gap: 0.5rem; padding-top: 0.2rem; }
+.cf__bar--confirm { justify-content: flex-end; color: var(--danger); font-weight: 600; font-size: 0.8rem; }
+.cf__bar--confirm span { margin-right: auto; }
+.cf__spacer { flex: 1; }
+
+/* Clear / Save under the add row: the space is always kept, the buttons only show while typing. */
+.cf__actions { display: flex; justify-content: flex-end; gap: 0.4rem; min-height: 32px; }
+.cf__actions .btn, .cf__bar .btn { height: 32px; padding: 0 0.85rem; font-size: 0.8rem; }
+.cf__actions--hidden { visibility: hidden; }

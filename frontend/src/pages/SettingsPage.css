@@ -1,0 +1,6 @@
+.settings { max-width: 78.5rem; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem; }
+.settings .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; align-self: flex-start; }
+.settings .back:hover { color: var(--text); }
+.settings h1 { margin: 0; font-size: 1.6rem; }
+.settings__actions { display: flex; gap: 0.5rem; flex: none; }
+.settings__actions a.btn { text-decoration: none; }

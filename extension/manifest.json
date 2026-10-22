@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "JobTracker",
+  "version": "1.0.0",
+  "description": "Your pending jobs and the apply screen, one click away. Reads the job page you have open.",
+  "permissions": ["activeTab", "scripting"],
+  "action": { "default_title": "JobTracker", "default_popup": "popup.html" }
+}

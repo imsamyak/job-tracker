@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+
+  /* Colour, shape and depth used everywhere, so the whole app looks like one thing. */
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --line: #e5e7ef;
+  --line-strong: #d4d8e3;
+  --text: #0f172a;
+  --text-2: #475569;
+  --muted: #64748b;
+  --brand: #2563eb;
+  --brand-dark: #1d4ed8;
+  --brand-soft: #eff4ff;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --header-h: 60px; /* height of the top bar; side panels start just below it */
+  --shadow-md: 0 10px 30px rgba(16, 24, 40, 0.14);
+}
+
+/* Base text size for the whole app. Sizes are in rem, so everything scales from this one value. */
+html { font-size: 14px; }
+/* big screens: larger text, and the pages (whose widths are in rem) grow with it */
+@media (min-width: 1600px) { html { font-size: 16px; } }
+@media (min-width: 2000px) { html { font-size: 18px; } }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+h1, h2, h3 { letter-spacing: -0.015em; }
+

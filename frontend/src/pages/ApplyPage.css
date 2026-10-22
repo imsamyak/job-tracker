@@ -1,0 +1,14 @@
+.applypage { max-width: 78.5rem; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem; }
+.applypage .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; align-self: flex-start; }
+.applypage .back:hover { color: var(--text); }
+
+.applypage__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.applypage__head h1 { margin: 0; font-size: 1.8rem; }
+.applypage__role { margin: 0.2rem 0 0; font-size: 1.05rem; color: var(--text-2); }
+.applypage__actions { display: flex; align-items: center; gap: 0.6rem; }
+.applypage__actions a.btn { text-decoration: none; }
+
+/* the chosen section on the left, the navigation bar on the right */
+.awin { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 1.1rem; align-items: start; }
+.awin__page { min-width: 0; }
+@media (max-width: 1000px) { .awin { grid-template-columns: minmax(0, 1fr) 56px; } }

@@ -1,0 +1,5 @@
+.cmodal { max-width: 620px; padding: 1.1rem 1.3rem 1.2rem; font-size: 0.85rem; }
+.cmodal__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+.cmodal__head h2 { margin: 0; font-size: 1.05rem; }
+
+.cmodal__list { list-style: none; margin: 0; padding: 0; }
